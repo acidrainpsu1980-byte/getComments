@@ -13,6 +13,18 @@ Export Facebook group comments to CSV using the Graph API.
    export FB_ACCESS_TOKEN="<YOUR_TOKEN>"
    ```
 
+### Getting a Facebook access token
+
+You can generate a short-lived user access token with the **Graph API Explorer**:
+
+1. Visit https://developers.facebook.com/tools/explorer/ while signed in to the Facebook account that has access to the target group.
+2. Choose your app in the "Meta App" dropdown (or create one if you don't have it yet).
+3. Click **Get Token → Get User Access Token** and approve the login dialog.
+4. In the permission picker, add the scopes your group requires (for example, `groups_access_member_info` to read group content).
+5. Click **Generate Access Token** and copy the resulting token into `FB_ACCESS_TOKEN` or pass it via `--access-token`.
+
+Tokens from the explorer expire quickly; for longer use, create a system user in your app and exchange the short-lived token for a long-lived one via the Graph API.
+
 ## Usage
 Run the CLI to pull comments from a group and save them to a CSV file:
 ```bash
